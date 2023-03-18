@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import "./style.css";
 import Add from "../images/Add.png";
-import { async } from "@firebase/util";
 import { useNavigate, Link } from "react-router-dom";
 
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
