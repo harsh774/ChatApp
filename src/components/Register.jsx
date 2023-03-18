@@ -1,24 +1,20 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, storage, db} from "../firebase";
-import React, {useState} from "react";
+import { auth, storage, db } from "../firebase";
+import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import "./style.css";
 import Add from "../images/Add.png";
 import { async } from "@firebase/util";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-
-import {
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 // import logo from '../images/logo.png'
 
 const Register = () => {
   const [err, setErr] = useState(false);
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,22 +25,19 @@ const Register = () => {
     const file = e.target[3].files[0];
 
     try {
-      const res = createUserWithEmailAndPassword(auth, email, password);
+      const res = await createUserWithEmailAndPassword(auth, email, password);
 
-      const storageRef = ref(storage, displayName);
+      const date = new Date().getTime();
+      const storageRef = ref(storage, `${displayName + date}`);
 
-      const uploadTask = await uploadBytesResumable(storageRef, file);
-      uploadTask.on(
-        (error) => {
-          setErr(true);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
-            await updateProfile(res.user,{
+      await uploadBytesResumable(storageRef, file).then(() => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
+          try {
+            await updateProfile(res.user, {
               displayName,
               photoURL: downloadURL,
             });
-            await setDoc(doc(db, "users", res.user.uid),{
+            await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
               displayName,
               email,
@@ -52,12 +45,17 @@ const Register = () => {
             });
 
             await setDoc(doc(db, "userChats", res.user.uid), {});
-            navigate("/")
-          });
-        }
-      );    
+            navigate("/");
+          } catch (err) {
+            console.log(err);
+            setErr(true);
+            setLoading(false);
+          }
+        });
+      });
     } catch (err) {
       setErr(true);
+      setLoading(false);
     }
   };
 
@@ -79,11 +77,11 @@ const Register = () => {
               <span>Add your avatar</span>
             </label>
             <button className="signin">Sign Up</button>
-            {err && <span style={{color: 'red'}}>Something went wrong</span>}
+            {loading && "Uploading and compressing the image please wait..."}
+            {err && <span style={{ color: "red" }}>Something went wrong</span>}
           </form>
           <p className="textreg">
-            Already have an account?{" "}
-            <span style={{ cursor: "pointer" }}>Login</span>
+            Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
       </div>
