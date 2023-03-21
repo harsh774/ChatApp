@@ -1,4 +1,4 @@
-
+import "../styles/input.css";
 import React, { useState, useContext } from "react";
 import Attach from "../images/Attach.png";
 import down from "../images/down.png";

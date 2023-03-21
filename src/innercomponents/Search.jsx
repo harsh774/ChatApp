@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import "../styles/search.css";
 import {
   collection,
   query,

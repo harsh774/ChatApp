@@ -1,4 +1,5 @@
 import { doc, onSnapshot } from "firebase/firestore";
+import "../styles/chats.css";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 import { ChatContext } from "../Contexts/ChatContext";
@@ -39,7 +40,7 @@ const Chats = () => {
           <img className="imsearch" src={chat[1].userInfo.photoURL} alt="" />
           <div className="userChatInfo">
             <span>{chat[1].userInfo.displayName}</span>
-            <p>{chat[1].lastMessage && chat[1].lastMessage.text}</p>
+            <p>{chat[1].lastMessage && chat[1].lastMessage.text.substring(0,20)}...</p>
           </div>
         </div>
       ))}

@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
+import "../styles/chat.css";
 import Add from "../images/Add.png";
 import Camera from "../images/camera.png";
 import More from "../images/more.png";
 import Messages from "./Messages";
 import Input from "./Input";
 import { ChatContext } from "../Contexts/ChatContext";
-// import video from '../images/cic.ico'
 
 const Chat = () => {
   const {data} = useContext(ChatContext);

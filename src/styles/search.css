@@ -1,0 +1,17 @@
+.search {
+  border-bottom: 1px solid gray;
+}
+
+.search .searchForm {
+  padding: 0px;
+}
+.insearch {
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+.insearch ::placeholder {
+  color: lightgray;
+}

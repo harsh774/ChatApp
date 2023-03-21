@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "../firebase";
 import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
-import "./style.css";
+import "../styles/form.css";
 import Add from "../images/Add.png";
 import { useNavigate, Link } from "react-router-dom";
 

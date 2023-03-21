@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ChatContext } from '../Contexts/ChatContext'
 import Message from './Message'
 import { db } from "../firebase";
+import "../styles/message.css";
 
 
 const Messages = () => {

@@ -1,0 +1,80 @@
+.form-container {
+  /* font-family: 'Josefin Sans', sans-serif; */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  background-color: whitesmoke;
+  padding: 20px 70px;
+  border-radius: 10px;
+  gap: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  color: #6561d8;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.title {
+  color: #5d5b8d;
+  font-size: 15px;
+  margin-bottom: 10px;
+  /* font-weight: bold; */
+}
+
+.signin {
+  background-color: #6561d8;
+  color: whitesmoke;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.register-form input {
+  padding: 15px;
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  width: 250px;
+  border-bottom: 1px solid rgb(207, 177, 236);
+}
+.register-form input ::placeholder {
+  color: rgb(175, 175, 175);
+}
+.register-form :focus{
+    outline-color: #6561d8;
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #6561d8;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.avat {
+  width: 22px;
+  /* cursor: pointer; */
+}
+
+.textreg {
+  color: #5d5b8d;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}

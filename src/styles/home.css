@@ -1,0 +1,23 @@
+
+.home {
+  background-color: #8c89e6;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  border: 1px solid rgb(219, 212, 233);
+  border-radius: 10px;
+  width: 65%;
+  height: 80%;
+  display: flex;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1024px) {
+    .container{
+        width: 95%;
+        height: 95%;
+    }    
+}
