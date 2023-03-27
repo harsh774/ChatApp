@@ -1,6 +1,8 @@
-# My-ChatApp ~ Developer {Harsh}
+# My-ChatApp
+Live Demo: https://chat-app-by-harsh.web.app/
+<br>
 This is a realtime chatting application, with attractive UI designing like whatsapp, messenger.
-This repository includes front-end part along with contexts of ChatApp.
+This repository includes front-end part along with contexts and firebase connection, authentication for ChatApp.
 
 # Tech Stack
 <ul>
@@ -26,7 +28,7 @@ This repository includes front-end part along with contexts of ChatApp.
 # Screenshots
 
 <ol>
-<dt>Register page</dt>
+<li>Register page</li>
 <img src="https://user-images.githubusercontent.com/80638077/226100392-56511f4e-f859-479c-814c-6100f9589c87.png" alt=""/>
 <li>Login Page</li>
 <img src="https://user-images.githubusercontent.com/80638077/226100526-71f8b3da-7db5-47bc-b1a7-ac44612ac2e7.png" alt=""/>
